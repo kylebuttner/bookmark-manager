@@ -1,7 +1,8 @@
-def sign_up
+def sign_up(email: 'dave@gov.uk', password: '12345', password_confirmation: '12345')
   visit 'users/new'
   expect(page.status_code).to eq 200
-  fill_in :email, with: 'dave@gov.uk'
-  fill_in :password, with: 'budgetcuts'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button 'Sign up'
 end
