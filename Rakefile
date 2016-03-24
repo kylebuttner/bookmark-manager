@@ -10,7 +10,16 @@ namespace :db do
 
   desc "Destructive upgrade"
   task :auto_migrate do
-    DataMapper.auto_migrate!
-    puts 'Auto-migrate complete (data was lost)'
+    puts 'Are you sure you want to auto_migrate? This will overwrite all data.'
+    puts 'Answer y or n'
+    answer = STDIN.gets.chomp
+    if answer == 'y'
+      DataMapper.auto_migrate!
+      puts 'Auto-migrate complete (data was lost)'
+    elsif answer == 'n'
+      puts 'Rake aborted'
+    else
+      puts 'Unknown response. Rake aborted'
+    end
   end
 end
