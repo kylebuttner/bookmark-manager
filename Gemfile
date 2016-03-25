@@ -15,4 +15,5 @@ group :test do
   gem 'rspec-sinatra'
   gem 'coveralls', require: false
   gem 'database_cleaner'
+  gem 'pry'
 end
