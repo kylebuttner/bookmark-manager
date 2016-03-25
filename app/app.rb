@@ -72,6 +72,7 @@ class BookmarkManager < Sinatra::Base
       redirect '/links'
     else
       flash.now[:errors] = ['The email or password is incorrect']
+      erb :'users/new'
     end
   end
 
